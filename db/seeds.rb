@@ -14,14 +14,16 @@ airport_codes = [
 ]
 
 airport_codes.each do |code|
-  Airport.create!(airport_code: code)
+  Airport.find_or_create_by!(airport_code: code)
 end
 
 airport_codes.each do |departure|
   airport_codes.each do |arrival|
-    Flight.create!(
-      departure_airport: Airport.find_by(departure),
-      arrival_airport: Airport.find_by(arrival),
+    next if departure == arrival
+
+    Flight.find_or_create_by!(
+      departure_airport: Airport.find_by(airport_code: departure),
+      arrival_airport: Airport.find_by(airport_code: arrival),
       start_datetime: Faker::Time.forward(days: 60),
       flight_duration: rand(15..240)
     )
