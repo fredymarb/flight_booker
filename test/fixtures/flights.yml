@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure: one
+  arrival: one
+  start_datetime: 2026-03-22 23:48:10
+  flight_duration_in_minutes: 1
+
+two:
+  departure: two
+  arrival: two
+  start_datetime: 2026-03-22 23:48:10
+  flight_duration_in_minutes: 1
