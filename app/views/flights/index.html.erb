@@ -1,2 +1,52 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
+
+<%= form_with url: flights_path, method: :get, local: true do %>
+  <div>
+    <%= label_tag :departure_airport_id, "From" %>
+    <%= select_tag :departure_airport_id, 
+        options_from_collection_for_select(
+          @airports,
+          :id,
+          :code,
+          params[:departure_airport_id]
+        ),
+        prompt: "Select departure airport"
+    %>
+  </div>
+
+  <div>
+    <%= label_tag :arrival_airport_id, "To" %>
+    <%= select_tag :arrival_airport_id, 
+        options_from_collection_for_select(
+          @airports,
+          :id,
+          :code,
+          params[:arrival_airport_id]
+        ),
+        prompt: "Select arrival airport"
+    %>
+  </div>
+
+  <div>
+    <%= label_tag :start_datetime, "Date" %><br>
+    <%= select_tag :start_datetime,
+      options_for_select(
+        @available_dates.map { |date| [date.strftime("%A, %B %d, %Y"), date] },
+        params[:start_datetime]
+      ),
+      prompt: "Select a date" %>
+  </div>
+
+  <div>
+    <%= label_tag :num_tickects, "Passanger" %>
+    <%= select_tag :num_tickects,
+        options_for_select(
+          (1..4), 
+          params[:num_tickects]
+        )
+     %>
+  </div>
+
+  <%= submit_tag "Search Flights" %>
+<% end %>
