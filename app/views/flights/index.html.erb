@@ -39,11 +39,11 @@
   </div>
 
   <div>
-    <%= label_tag :num_tickects, "Passanger" %>
-    <%= select_tag :num_tickects,
+    <%= label_tag :num_tickets, "Passanger" %>
+    <%= select_tag :num_tickets,
         options_for_select(
           (1..4), 
-          params[:num_tickects]
+          params[:num_tickets]
         )
      %>
   </div>
@@ -55,10 +55,18 @@
 <% if @flights.any? %>
   <h2>Available Flights</h2>
 
-  <% @flights.each do |flight| %>
-    <%= "#{flight.departure_airport.code} ➡️ #{flight.arrival_airport.code}
-        | #{flight.start_datetime.strftime("%A, %B %d, %Y %H:%M")}
-        " %>
-    <br>
-  <% end %>
+    <p>Number of Passangers: <%= @num_tickets %></p>
+
+    <ul>
+      <% @flights.each do |flight| %>
+        <li>
+          <%= "#{flight.departure_airport.code} ➡️ #{flight.arrival_airport.code}
+              | #{flight.start_datetime.strftime("%A, %B %d, %Y %H:%M")}
+              " %>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+ 
+  
 <% end%>
