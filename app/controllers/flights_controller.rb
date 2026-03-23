@@ -13,10 +13,10 @@ class FlightsController < ApplicationController
     if search_params_present?
       @num_tickets = params[:num_tickets]
 
-      @flights = Flight.where(
+      @flights = Flight.search(
         params[:departure_airport_id],
         params[:arrival_airport_id],
-        Date.parse(params[:start_datetime]).all_day
+        params[:start_datetime]
       )
     else
       @flights = []

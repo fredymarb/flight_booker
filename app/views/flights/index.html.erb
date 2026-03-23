@@ -50,3 +50,15 @@
 
   <%= submit_tag "Search Flights" %>
 <% end %>
+
+
+<% if @flights.any? %>
+  <h2>Available Flights</h2>
+
+  <% @flights.each do |flight| %>
+    <%= "#{flight.departure_airport.code} ➡️ #{flight.arrival_airport.code}
+        | #{flight.start_datetime.strftime("%A, %B %d, %Y %H:%M")}
+        " %>
+    <br>
+  <% end %>
+<% end%>
