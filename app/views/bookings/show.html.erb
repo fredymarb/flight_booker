@@ -1,0 +1,17 @@
+<h1>Booking Confirmed 🎉</h1>
+
+<h2>Flight Details</h2>
+<p>
+  <%= @booking.flight.departure_airport.code %> →
+  <%= @booking.flight.arrival_airport.code %>
+</p>
+
+<h2>Passengers</h2>
+
+<ul>
+  <% @booking.passengers.each do |passenger| %>
+    <li>
+      <%= passenger.name %> (<%= passenger.email %>)
+    </li>
+  <% end %>
+</ul>

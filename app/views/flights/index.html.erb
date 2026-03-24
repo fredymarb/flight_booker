@@ -65,7 +65,7 @@
           <%= label_tag "flight_#{flight.id}",
           "#{flight.departure_airport.code} → #{flight.arrival_airport.code}
            | #{flight.start_datetime.strftime("%A, %B %d, %Y %H:%M")}
-           | Duration: #{flight.flight_duration} minutes" %>
+           | Duration: #{flight.flight_duration_in_minutes} minutes" %>
         </li>
         <br>
       <% end %>
