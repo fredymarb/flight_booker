@@ -17,6 +17,13 @@ class BookingsController < ApplicationController
     @flight = @booking.flight
 
     if @booking.save
+      @booking.passangers.each do |passenger|
+        PassengerMailer.with(passenger: passenger, flight: @flight)
+          .confirmation_email
+          .deliver_later
+      end
+
+
       redirect_to @booking, notice: "Booking successfully created"
     else
       puts @booking.errors.full_messages

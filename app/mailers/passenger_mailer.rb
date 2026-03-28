@@ -1,4 +1,4 @@
-class PassangerMailer < ApplicationMailer
+class PassengerMailer < ApplicationMailer
   default from: "booking@example.com"
 
   def confirmation_email
