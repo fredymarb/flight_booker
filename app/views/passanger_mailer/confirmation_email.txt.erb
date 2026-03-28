@@ -1,0 +1,18 @@
+Hello <%= @passenger.name %>,
+
+Your flight booking has been successfully confirmed ✈️
+
+Flight Details:
+
+Departure Airport: <%= @flight.departure_airport.code %>
+Arrival Airport: <%= @flight.arrival_airport.code %>
+Departure Time: <%= @flight.start_datetime.strftime("%A, %d %B %Y at %I:%M %p") %>
+
+Passenger:
+<%= @passenger.name %>
+
+Thank you for choosing our airline.
+We wish you a pleasant journey!
+
+Safe travels,
+Flight Booking Team

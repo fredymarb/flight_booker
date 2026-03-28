@@ -1,0 +1,50 @@
+<div style="font-family: Arial, sans-serif; line-height: 1.6;">
+  <h2 style="color: #2c3e50;">✈️ Booking Confirmation</h2>
+
+  <p>Hello <strong><%= @passenger.name %></strong>,</p>
+
+  <p>
+    Your flight booking has been successfully confirmed.
+  </p>
+
+  <hr>
+
+  <h3>Flight Details</h3>
+
+  <p>
+    <strong>From:</strong>
+    <%= @flight.departure_airport.code %>
+  </p>
+
+  <p>
+    <strong>To:</strong>
+    <%= @flight.arrival_airport.code %>
+  </p>
+
+  <p>
+    <strong>Date:</strong>
+    <%= @flight.start_datetime.strftime("%A, %d %B %Y") %>
+  </p>
+
+  <p>
+    <strong>Departure Time:</strong>
+    <%= @flight.start_datetime.strftime("%I:%M %p") %>
+  </p>
+
+  <hr>
+
+  <p>
+    We look forward to having you onboard!
+  </p>
+
+  <p>
+    Safe travels,<br>
+    <strong>Flight Booker Team</strong>
+  </p>
+
+  <br>
+
+  <small style="color: gray;">
+    This is an automated confirmation email.
+  </small>
+</div>
